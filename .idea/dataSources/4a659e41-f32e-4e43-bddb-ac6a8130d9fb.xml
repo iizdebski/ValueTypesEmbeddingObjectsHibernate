@@ -1203,5 +1203,50 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
+    <table id="310" parent="38" name="employee_table">
+      <Collation>utf8_general_ci</Collation>
+    </table>
+    <column id="311" parent="310" name="employee_id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="312" parent="310" name="employee_name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="313" parent="310" name="email">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="314" parent="310" name="date_of_joining">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="315" parent="310" name="salary">
+      <Position>5</Position>
+      <DataType>double|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="316" parent="310" name="employee_id_UNIQUE">
+      <ColNames>employee_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="317" parent="310" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>employee_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="318" parent="310" name="employee_id_UNIQUE">
+      <ColNames>employee_id</ColNames>
+      <UnderlyingIndexName>employee_id_UNIQUE</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>

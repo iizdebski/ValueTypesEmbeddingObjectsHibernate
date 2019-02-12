@@ -12,18 +12,21 @@ public class HibernateUtil {
     private static SessionFactory sessionFactory;
 
     static {
-        try{
         if (sessionFactory == null) {
-            standardServiceRegistry = new StandardServiceRegistryBuilder().configure().build();
-            MetadataSources metadataSources = new MetadataSources(standardServiceRegistry);
-            Metadata metadata = metadataSources.getMetadataBuilder().build();
-            sessionFactory = metadata.getSessionFactoryBuilder().build();
-        }
-    } catch(Exception e){
-        e.printStackTrace();
-        if(standardServiceRegistry != null) {
-            StandardServiceRegistryBuilder.destroy(standardServiceRegistry);
-        }
+            try {
+                standardServiceRegistry = new StandardServiceRegistryBuilder()
+                        .configure("hibernate.cfg.xml")
+                        .build();
+                MetadataSources metadataSources = new MetadataSources(standardServiceRegistry);
+                Metadata metadata = metadataSources.getMetadataBuilder().build();
+                sessionFactory = metadata.getSessionFactoryBuilder().build();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                if (standardServiceRegistry != null) {
+                    StandardServiceRegistryBuilder.destroy(standardServiceRegistry);
+                }
+            }
         }
     }
     public static SessionFactory getSessionFactory(){
