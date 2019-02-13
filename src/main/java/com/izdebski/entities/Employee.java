@@ -12,7 +12,8 @@ public class Employee {
 
     @Id
     @Column(name="employee_id")
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO,generator="empid_generator")
+    @SequenceGenerator(name = "empid_generator",initialValue=1,allocationSize=1,sequenceName="empid_seq")
     private Integer employeeId;
 
     @Column(name="employee_name", length = 100, nullable=false)

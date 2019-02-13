@@ -3,9 +3,6 @@ package com.izdebski.client;
 import com.izdebski.entities.Employee;
 import com.izdebski.service.EmployeeService;
 import com.izdebski.service.impl.EmployeeServiceImpl;
-import com.izdebski.util.HibernateUtil;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
 
 import java.util.Date;
 

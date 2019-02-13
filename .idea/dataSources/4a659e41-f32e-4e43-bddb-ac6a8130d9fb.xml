@@ -118,7 +118,7 @@
     <schema id="38" parent="1" name="test3">
       <Current>1</Current>
       <Visible>1</Visible>
-      <Collation>utf8mb4_0900_ai_ci</Collation>
+      <Collation>utf8_general_ci</Collation>
     </schema>
     <schema id="39" parent="1" name="world">
       <Collation>utf8mb4_0900_ai_ci</Collation>
@@ -1203,50 +1203,56 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="310" parent="38" name="employee_table">
-      <Collation>utf8_general_ci</Collation>
+    <table id="310" parent="38" name="empid_seq">
+      <Engine>MyISAM</Engine>
     </table>
-    <column id="311" parent="310" name="employee_id">
+    <table id="311" parent="38" name="employee_table">
+      <Engine>MyISAM</Engine>
+    </table>
+    <table id="312" parent="38" name="hibernate_sequence">
+      <Engine>MyISAM</Engine>
+    </table>
+    <column id="313" parent="310" name="next_val">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="314" parent="311" name="employee_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="312" parent="310" name="employee_name">
+    <column id="315" parent="311" name="date_of_joining">
       <Position>2</Position>
-      <DataType>varchar(100)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="313" parent="310" name="email">
+    <column id="316" parent="311" name="email">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="314" parent="310" name="date_of_joining">
+    <column id="317" parent="311" name="employee_name">
       <Position>4</Position>
-      <DataType>datetime|0s</DataType>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="315" parent="310" name="salary">
+    <column id="318" parent="311" name="salary">
       <Position>5</Position>
       <DataType>double|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="316" parent="310" name="employee_id_UNIQUE">
-      <ColNames>employee_id</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <key id="317" parent="310" name="PRIMARY">
+    <key id="319" parent="311" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>employee_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="318" parent="310" name="employee_id_UNIQUE">
-      <ColNames>employee_id</ColNames>
-      <UnderlyingIndexName>employee_id_UNIQUE</UnderlyingIndexName>
-    </key>
+    <column id="320" parent="312" name="next_val">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
   </database-model>
 </dataSource>
