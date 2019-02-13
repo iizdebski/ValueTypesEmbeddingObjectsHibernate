@@ -11,9 +11,8 @@ import java.util.Date;
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-
     @Column(name="employee_id")
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer employeeId;
 
     @Column(name="employee_name", length = 100, nullable=false)
@@ -66,5 +65,16 @@ public class Employee {
 
     public void setSalary(Double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId=" + employeeId +
+                ", employeeName='" + employeeName + '\'' +
+                ", email='" + email + '\'' +
+                ", doj=" + doj +
+                ", salary=" + salary +
+                '}';
     }
 }
