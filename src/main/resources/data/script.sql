@@ -11,7 +11,7 @@ CREATE TABLE employee_table
     AUTO_INCREMENT PRIMARY KEY,
   date_of_joining DATETIME,
   email VARCHAR(255),
-  employee_name VARCHAR(100) NOT NULL,
+  employee_name VARCHAR(200) NOT NULL,
   salary DOUBLE PRECISION,
   CONSTRAINT employee_id_UNIQUE
     UNIQUE (employee_id)
