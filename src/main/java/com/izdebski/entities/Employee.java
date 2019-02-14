@@ -12,8 +12,8 @@ public class Employee {
 
     @Id
     @Column(name="employee_id")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="empid_generator")
-    @SequenceGenerator(name="empid_generator", initialValue = 3, allocationSize = 1,sequenceName = "empid_seq")
+    @GeneratedValue(strategy=GenerationType.TABLE, generator="empid_generator")
+    @TableGenerator(name="empid_generator", initialValue = 1, allocationSize = 1, table="empid_seq")
     private Integer employeeId;
 
     @Column(name="employee_name", length = 200, nullable=false)

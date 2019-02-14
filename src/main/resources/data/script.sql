@@ -2,7 +2,6 @@
 CREATE DATABASE IF NOT EXISTS test3 CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 USE test3;
-
 DROP TABLE IF EXISTS employee_table;
 
 CREATE TABLE employee_table
@@ -15,6 +14,15 @@ CREATE TABLE employee_table
   salary DOUBLE PRECISION,
   CONSTRAINT employee_id_UNIQUE
     UNIQUE (employee_id)
+)
+  ENGINE = innoDB
+  DEFAULT CHARACTER SET = utf8
+;
+
+CREATE TABLE empid_seq(
+  sequence_name VARCHAR(255) NOT NULL,
+  next_val BIGINT,
+  PRIMARY KEY(sequence_name)
 )
   ENGINE = innoDB
   DEFAULT CHARACTER SET = utf8
