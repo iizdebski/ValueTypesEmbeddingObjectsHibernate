@@ -1,5 +1,6 @@
 package com.izdebski.entities;
 
+import com.izdebski.model.Address;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
@@ -12,18 +13,20 @@ public class Employee {
 
     @Id
     @Column(name="employee_id")
-    @GeneratedValue(strategy=GenerationType.TABLE, generator="empid_generator")
-    @TableGenerator(name="empid_generator", initialValue = 1, allocationSize = 1, table="empid_seq")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer employeeId;
 
     @Column(name="employee_name", length = 200, nullable=false)
     private String employeeName;
 
-    @Column(name="email", unique = true)
+    @Column(name="email")
     private String email;
 
-    @Column(name="date_of_joining")
+    @Column(name="date_of_join")
     private Date doj;
+
+    @Embedded
+    private Address address;
 
     @Column(name="salary")
     private Double salary;
@@ -66,6 +69,14 @@ public class Employee {
 
     public void setSalary(Double salary) {
         this.salary = salary;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
